@@ -1,0 +1,90 @@
+generated: '2026-08-06'
+method: probed
+source: live GET of /.well-known/* on every Arundo host reachable without credentials
+note: >-
+  Arundo publishes no /.well-known/ surface on its own hosts. The only discovery
+  documents found are on the Auth0 tenant that fronts the Arundo customer
+  applications (carbonpath.arundo.com redirects to https://arundo.eu.auth0.com/u/login),
+  which serves OpenID Connect discovery and RFC 8414 authorization-server metadata
+  anonymously.
+hosts:
+- host: https://arundo.eu.auth0.com
+  role: identity provider for Arundo customer applications (Auth0 EU tenant)
+  documents:
+  - path: /.well-known/openid-configuration
+    status: 200
+    content_type: application/json
+    file: arundo-analytics-openid-configuration.json
+  - path: /.well-known/oauth-authorization-server
+    status: 200
+    content_type: application/json
+    file: arundo-analytics-oauth-authorization-server.json
+  - path: /.well-known/jwks.json
+    status: 200
+    content_type: application/json
+    file: null
+    note: JSON Web Key Set fetched and confirmed 200; public key material not stored in the repo
+- host: https://www.arundo.com
+  role: corporate website (Webflow)
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://api.arundo.com
+  role: legacy static host (Amazon S3 behind CloudFront, last-modified 2017-03-23) — returns a 404 HTML page for every path
+  documents:
+  - path: /.well-known/security.txt
+    status: 404
+  - path: /.well-known/openid-configuration
+    status: 404
+  - path: /.well-known/oauth-authorization-server
+    status: 404
+  - path: /.well-known/api-catalog
+    status: 404
+  - path: /.well-known/ai-plugin.json
+    status: 404
+  - path: /.well-known/agent-card.json
+    status: 404
+  - path: /.well-known/agent.json
+    status: 404
+- host: https://marathon.eu.arundo.com
+  role: Marathon customer application (single-page app)
+  note: >-
+    Rejected as a false positive — this host answers HTTP 200 with the same 924-byte
+    HTML shell for every path including /.well-known/agent-card.json, /openapi.json
+    and /llms.txt. No JSON was ever returned.
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 200
+    content_type: text/html
+    accepted: false
+  - path: /.well-known/agent.json
+    status: 200
+    content_type: text/html
+    accepted: false
+- host: https://carbonpath.arundo.com
+  role: CarbonPath customer application — redirects to the Auth0 login
+  documents:
+  - path: /.well-known/agent-card.json
+    status: 400
+    note: redirects to https://arundo.eu.auth0.com/u/login for every path
+x-evidence:
+  fetched: '2026-08-06'
+  probed_hosts:
+  - https://www.arundo.com
+  - https://api.arundo.com
+  - https://arundo.eu.auth0.com
+  - https://marathon.eu.arundo.com
+  - https://carbonpath.arundo.com
+  - https://status.arundo.com

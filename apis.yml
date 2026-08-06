@@ -1,7 +1,22 @@
 aid: arundo-analytics
 name: Arundo Analytics
-description: 'Arundo Analytics is a company surfaced via the API Evangelist harvest backlog (source: secondary-market)
-  and added to the network as a stub for full-pipeline profiling.'
+description: 'Arundo Analytics is an industrial AI company with offices in Oslo, Stockholm,
+  Heidelberg and Houston, building software for asset-heavy industries such as oil
+  and gas, maritime and shipping, chemicals and manufacturing. Its Arundo AI Foundation
+  platform combines a knowledge graph of asset hierarchies and sensor metadata, industrial
+  time-series storage built for high-velocity sensor data, parallelised machine-learning
+  model orchestration, and specialised AI agents, surfaced through the AI Foundation
+  Studio and what the company calls the Arundo Foundation APIs. Packaged applications
+  include Marathon (continuous equipment condition monitoring), ArundoEdge and Edge
+  Manager (secure streaming of IoT sensor data from control systems to the cloud),
+  Energy Optimizer, CarbonPath (Scope 3 emissions management for shipping) and AI
+  Companion. Arundo also maintains the open-source Python packages ADTK (unsupervised
+  time-series anomaly detection) and tsaug (time-series augmentation), and publishes
+  a public Foundation compute plug-in contract on GitHub. The Foundation APIs themselves
+  are marketed on the public site but are not publicly documented; there is no developer
+  portal, no public API reference and no machine-readable specification, and the applications
+  sit behind an Auth0 customer login.'
+image: https://cdn.prod.website-files.com/628b26907521666ea45674fa/62ab23ffdc11279ec1b336a5_Favicin_Square_256x256.png
 url: https://raw.githubusercontent.com/api-evangelist/arundo-analytics/refs/heads/main/apis.yml
 x-type: company
 x-source: harvest:secondary-market
@@ -12,6 +27,17 @@ created: '2026-08-06'
 modified: '2026-08-06'
 tags:
 - Company
+- Industrial AI
+- Industrial IoT
+- Analytics
+- Machine Learning
+- Time Series
+- Asset Performance Management
+- Anomaly Detection
+- Energy
+- Maritime
+- Oil and Gas
+- Manufacturing
 apis: []
 maintainers:
 - FN: Kin Lane
@@ -19,5 +45,65 @@ maintainers:
 - FN: APIs.json
   email: info@apis.io
 common:
+- type: DomainSecurity
+  url: security/arundo-analytics-domain-security.yml
 - type: Website
+  url: https://www.arundo.com/
+- type: Support
+  url: https://support.arundo.com/
+- type: Blog
+  url: https://www.arundo.com/insights
+- type: GitHubOrganization
+  url: https://github.com/arundo
+- type: LinkedIn
+  url: https://www.linkedin.com/company/arundo-analytics-inc-
+- type: TermsOfService
+  url: https://www.arundo.com/terms-of-service
+- type: PrivacyPolicy
+  url: https://www.arundo.com/privacy-policy
+- type: StatusPage
+  url: https://status.arundo.com
+- type: Login
+  url: https://carbonpath.arundo.com/
+- type: SecondaryMarketProfile
   url: https://forgeglobal.com/arundo-analytics_stock/
+- type: Lifecycle
+  url: lifecycle/arundo-analytics-lifecycle.yml
+- type: WellKnown
+  url: well-known/arundo-analytics-well-known.yml
+- type: Authentication
+  url: authentication/arundo-analytics-authentication.yml
+- type: OAuthScopes
+  url: scopes/arundo-analytics-scopes.yml
+- type: Conformance
+  url: conformance/arundo-analytics-conformance.yml
+- type: Packages
+  url: packages/arundo-analytics-packages.yml
+- type: JSONSchema
+  url: json-schema/arundo-analytics-foundation-compute.json
+- type: LLMsTxt
+  url: llms/arundo-analytics-llms.txt
+x-enrichment:
+  date: '2026-08-06'
+  status: minimal
+  artifacts_added: 11
+  pass: local-v1
+x-coverage:
+  state: gated
+  reason: customer-only-docs
+  detail: >-
+    Arundo markets "Arundo Foundation APIs" on its technology page but publishes no
+    developer portal or reference anywhere — the only routes in are the CarbonPath and
+    Marathon apps, which bounce to an Auth0 tenant login, and a Jira Service Management
+    customer portal, while the old api.arundo.com host is a 2017 static S3 bucket that
+    404s every path.
+  evidence:
+  - url: https://carbonpath.arundo.com/
+    status: 400
+  - url: https://api.arundo.com/openapi.json
+    status: 404
+  - url: https://www.arundo.com/docs
+    status: 404
+  - url: https://arundo.eu.auth0.com/.well-known/openid-configuration
+    status: 200
+  checked: '2026-08-06'

@@ -1,0 +1,46 @@
+generated: '2026-08-06'
+method: probed
+source: https://status.arundo.com/api/v2/summary.json
+status_page: https://status.arundo.com
+status_page_provider: Atlassian Statuspage
+status_api: https://status.arundo.com/api/v2/summary.json
+status_components:
+- name: Marathon
+  status: operational
+- name: BOP Counter
+  status: operational
+- name: Edge Manager
+  status: operational
+- name: DW Production Recommender
+  status: operational
+- name: ECU Load Optimization
+  status: operational
+- name: CarbonPath
+  status: operational
+- name: AI Companion
+  status: operational
+versioning:
+  scheme: null
+  current: null
+  docs: null
+  note: no public API versioning policy — Arundo publishes no API reference
+deprecation:
+  policy_url: null
+  sunset_header: null
+  note: no deprecation policy and no RFC 8594 Sunset/Deprecation header documentation found
+sla:
+  url: null
+  uptime_target: null
+  note: >-
+    the Terms of Service at https://www.arundo.com/terms-of-service govern the website;
+    no published uptime target or service-level agreement was found on a public page
+deprecated_operations: []
+x-evidence:
+  fetched: '2026-08-06'
+  urls:
+  - url: https://status.arundo.com/
+    status: 200
+  - url: https://status.arundo.com/api/v2/summary.json
+    status: 200
+  - url: https://www.arundo.com/pricing
+    status: 404

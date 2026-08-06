@@ -1,0 +1,66 @@
+generated: '2026-08-06'
+method: searched
+source: >-
+  https://pypi.org/pypi/adtk/json, https://pypi.org/pypi/tsaug/json,
+  https://github.com/arundo
+note: >-
+  Arundo publishes two first-party open-source Python libraries. NEITHER IS A CLIENT
+  SDK for an Arundo API — they are standalone time-series analytics toolkits, so no
+  `SDKs` pointer is emitted for them. The one repository named like a client library,
+  github.com/arundo/sdk-js ("Arundo API SDK in JavaScript"), contains only a README
+  and has never shipped code or a published npm package. Registry sweep: npm
+  (@arundo/sdk, @arundo/client, arundo, arundo-sdk all 404), PyPI (arundo,
+  arundo-sdk, arundo-client all 404), and no Maven Central, NuGet, pkg.go.dev,
+  RubyGems, Packagist or crates.io presence.
+packages:
+- language: python
+  registry: pypi
+  name: adtk
+  version: 0.6.2
+  url: https://pypi.org/project/adtk/
+  source: https://github.com/arundo/adtk
+  install: pip install adtk
+  license: MPL-2.0
+  official: true
+  kind: open-source-library
+  description: Anomaly Detection Toolkit — rule-based / unsupervised anomaly detection in time series.
+  last_release: '2020-04-17'
+- language: python
+  registry: pypi
+  name: tsaug
+  version: 0.2.1
+  url: https://pypi.org/project/tsaug/
+  source: https://github.com/arundo/tsaug
+  install: pip install tsaug
+  license: Apache-2.0
+  official: true
+  kind: open-source-library
+  description: Time-series augmentation package.
+  last_release: '2020-04-17'
+api_clients: []
+registries_checked:
+- registry: npm
+  result: no first-party Arundo package
+- registry: pypi
+  result: adtk, tsaug (libraries, not API clients)
+- registry: maven-central
+  result: none
+- registry: nuget
+  result: none
+- registry: pkg.go.dev
+  result: none
+- registry: rubygems
+  result: none
+- registry: packagist
+  result: none
+- registry: crates.io
+  result: none
+x-evidence:
+  fetched: '2026-08-06'
+  urls:
+  - url: https://pypi.org/pypi/adtk/json
+    status: 200
+  - url: https://pypi.org/pypi/tsaug/json
+    status: 200
+  - url: https://registry.npmjs.org/@arundo%2Fsdk
+    status: 404

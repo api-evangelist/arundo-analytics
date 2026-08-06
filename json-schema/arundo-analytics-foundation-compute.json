@@ -1,0 +1,98 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/arundo-analytics/refs/heads/main/json-schema/arundo-analytics-foundation-compute.json",
+  "title": "Arundo Foundation compute plug-in contract",
+  "description": "JSON Schema derived faithfully from Arundo's own published Foundation compute plug-in contract: the request/response specification at https://github.com/arundo/foundation-compute-example/blob/main/API_SCHEMA.md and the Pydantic models at src/schema.py in the same repository. This is the contract a THIRD PARTY implements so a compute can be executed by Arundo Foundation compute workers — it is not a description of a hosted Arundo API endpoint. Arundo publishes no OpenAPI for the Foundation APIs.",
+  "x-generated": "2026-08-06",
+  "x-method": "derived",
+  "x-source": [
+    "https://github.com/arundo/foundation-compute-example/blob/main/API_SCHEMA.md",
+    "https://raw.githubusercontent.com/arundo/foundation-compute-example/main/src/schema.py",
+    "https://raw.githubusercontent.com/arundo/foundation-compute-example/main/src/main.py"
+  ],
+  "$defs": {
+    "TimeseriesData": {
+      "title": "TimeseriesData",
+      "description": "Timestamp -> value mapping. Keys are epoch-millisecond timestamps expressed as strings or integers; values are numbers or null.",
+      "type": "object",
+      "additionalProperties": {
+        "type": ["number", "null"]
+      }
+    },
+    "ComputeRequest": {
+      "title": "ComputeRequest",
+      "description": "Body POSTed by a Foundation compute worker to /execute/{compute_name}.",
+      "type": "object",
+      "required": ["data", "tick", "uwid"],
+      "properties": {
+        "data": {
+          "description": "Input sensor and constant data, keyed by sensor name.",
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/TimeseriesData" }
+        },
+        "parameters": {
+          "description": "Compute parameters used to tune the compute internals (e.g. window_size for rolling_mean). Defaults to an empty object.",
+          "type": "object",
+          "default": {}
+        },
+        "tick": {
+          "description": "Current execution timestamp — the time the compute is executed.",
+          "type": "integer"
+        },
+        "uwid": {
+          "description": "Unique work identifier, used to identify the work item and track it through the compute lifecycle.",
+          "type": "string"
+        }
+      }
+    },
+    "ComputeResponse": {
+      "title": "ComputeResponse",
+      "description": "Successful 200 response body returned by a Foundation compatible compute.",
+      "type": "object",
+      "required": ["data", "uwid"],
+      "properties": {
+        "data": {
+          "description": "Computed output data, keyed by output sensor name.",
+          "type": "object",
+          "additionalProperties": { "$ref": "#/$defs/TimeseriesData" }
+        },
+        "uwid": {
+          "description": "The unique work identifier echoed back from the request.",
+          "type": "string"
+        }
+      }
+    },
+    "ErrorResponse": {
+      "title": "ErrorResponse",
+      "description": "Error envelope returned with HTTP 400 (invalid compute name or request validation failure) and HTTP 500 (computation failure). Note this is NOT RFC 9457 application/problem+json.",
+      "type": "object",
+      "required": ["issues"],
+      "properties": {
+        "issues": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["code", "message", "path"],
+            "properties": {
+              "code": {
+                "type": "string",
+                "description": "Issue code. Observed values in the published example: invalid_compute_name, internal_error, plus Pydantic validation error types."
+              },
+              "message": { "type": "string" },
+              "path": {
+                "type": "array",
+                "description": "Location of the offending value.",
+                "items": { "type": ["string", "integer"] }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "oneOf": [
+    { "$ref": "#/$defs/ComputeRequest" },
+    { "$ref": "#/$defs/ComputeResponse" },
+    { "$ref": "#/$defs/ErrorResponse" }
+  ]
+}

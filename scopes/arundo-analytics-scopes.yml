@@ -1,0 +1,74 @@
+generated: '2026-08-06'
+method: probed
+source: https://arundo.eu.auth0.com/.well-known/openid-configuration
+docs: null
+note: >-
+  These are the scopes the Arundo Auth0 tenant advertises in its OIDC discovery
+  document — the standard OpenID Connect identity scopes and claim-scopes. Arundo
+  publishes NO API-resource scope vocabulary (no read:/write: style permissions),
+  because the Foundation APIs have no public reference. Anything beyond this list
+  would require an authenticated look at the tenant's API (audience) definitions.
+schemes:
+- name: OpenIDConnect
+  source: well-known/arundo-analytics-openid-configuration.json
+  issuer: https://arundo.eu.auth0.com/
+  flows:
+  - flow: authorizationCode
+    authorizationUrl: https://arundo.eu.auth0.com/authorize
+    tokenUrl: https://arundo.eu.auth0.com/oauth/token
+  - flow: clientCredentials
+    tokenUrl: https://arundo.eu.auth0.com/oauth/token
+  - flow: deviceCode
+    deviceAuthorizationUrl: https://arundo.eu.auth0.com/oauth/device/code
+    tokenUrl: https://arundo.eu.auth0.com/oauth/token
+scopes:
+- scope: openid
+  description: Request an ID token (OpenID Connect Core).
+  kind: openid-connect
+- scope: profile
+  description: Access the end user's default profile claims.
+  kind: openid-connect
+- scope: offline_access
+  description: Issue a refresh token for long-lived access.
+  kind: openid-connect
+- scope: email
+  description: Access the end user's email address.
+  kind: openid-connect
+- scope: email_verified
+  description: Access whether the end user's email address has been verified.
+  kind: claim
+- scope: name
+  description: Access the end user's full name claim.
+  kind: claim
+- scope: given_name
+  description: Access the end user's given name claim.
+  kind: claim
+- scope: family_name
+  description: Access the end user's family name claim.
+  kind: claim
+- scope: nickname
+  description: Access the end user's nickname claim.
+  kind: claim
+- scope: picture
+  description: Access the end user's profile picture claim.
+  kind: claim
+- scope: created_at
+  description: Access the end user's account creation timestamp claim.
+  kind: claim
+- scope: identities
+  description: Access the end user's linked identity provider records.
+  kind: claim
+- scope: phone
+  description: Access the end user's phone number claim.
+  kind: claim
+- scope: address
+  description: Access the end user's address claim.
+  kind: claim
+coverage:
+  identity_scopes: 14
+  api_resource_scopes: 0
+  api_resource_scopes_note: not published — the Foundation API audiences are not publicly documented
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://arundo.eu.auth0.com/.well-known/openid-configuration
+  http_status: 200

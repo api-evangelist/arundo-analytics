@@ -1,0 +1,86 @@
+generated: '2026-08-06'
+method: probed
+source: https://arundo.eu.auth0.com/.well-known/openid-configuration
+note: >-
+  Arundo publishes no OpenAPI, so there are no securitySchemes to derive from. This
+  profile is probed directly from the OpenID Connect discovery document served by the
+  Auth0 EU tenant that fronts Arundo's customer applications — carbonpath.arundo.com
+  redirects to https://arundo.eu.auth0.com/u/login. It describes how Arundo
+  authenticates users and machine clients; it is NOT a description of a public
+  Arundo API, because Arundo does not document one.
+summary:
+  types:
+  - openIdConnect
+  - oauth2
+  oauth2_flows:
+  - authorizationCode
+  - clientCredentials
+  - implicit
+  - deviceCode
+  - refreshToken
+  api_key_in: []
+  mfa: true
+  pkce: true
+  dpop: true
+schemes:
+- name: OpenIDConnect
+  type: openIdConnect
+  openIdConnectUrl: https://arundo.eu.auth0.com/.well-known/openid-configuration
+  issuer: https://arundo.eu.auth0.com/
+  provider: Auth0 (EU region tenant)
+  sources:
+  - well-known/arundo-analytics-openid-configuration.json
+- name: OAuth2
+  type: oauth2
+  sources:
+  - well-known/arundo-analytics-oauth-authorization-server.json
+  endpoints:
+    authorization: https://arundo.eu.auth0.com/authorize
+    token: https://arundo.eu.auth0.com/oauth/token
+    userinfo: https://arundo.eu.auth0.com/userinfo
+    revocation: https://arundo.eu.auth0.com/oauth/revoke
+    device_authorization: https://arundo.eu.auth0.com/oauth/device/code
+    backchannel_authentication: https://arundo.eu.auth0.com/bc-authorize
+    registration: https://arundo.eu.auth0.com/oidc/register
+    jwks: https://arundo.eu.auth0.com/.well-known/jwks.json
+    mfa_challenge: https://arundo.eu.auth0.com/mfa/challenge
+  grant_types:
+  - client_credentials
+  - authorization_code
+  - refresh_token
+  - password
+  - implicit
+  - urn:ietf:params:oauth:grant-type:device_code
+  - urn:ietf:params:oauth:grant-type:token-exchange
+  - urn:ietf:params:oauth:grant-type:jwt-bearer
+  - http://auth0.com/oauth/grant-type/password-realm
+  - http://auth0.com/oauth/grant-type/passwordless/otp
+  - http://auth0.com/oauth/grant-type/mfa-oob
+  - http://auth0.com/oauth/grant-type/mfa-otp
+  - http://auth0.com/oauth/grant-type/mfa-recovery-code
+  token_endpoint_auth_methods:
+  - client_secret_basic
+  - client_secret_post
+  - private_key_jwt
+  - none
+  code_challenge_methods:
+  - S256
+  - plain
+  id_token_signing_algs:
+  - HS256
+  - RS256
+  - PS256
+  dpop_signing_algs:
+  - ES256
+  dynamic_client_registration: true
+gaps:
+- No public developer authentication documentation — Arundo publishes no developer
+  portal, no API reference and no getting-started page for the Foundation APIs.
+- Machine-to-machine access (client_credentials) is advertised by the tenant metadata,
+  but the audience/API identifiers, the scope vocabulary and the credential-issuance
+  process are not published anywhere public.
+x-evidence:
+  fetched: '2026-08-06'
+  url: https://arundo.eu.auth0.com/.well-known/openid-configuration
+  http_status: 200
+  content_type: application/json

@@ -1,0 +1,14 @@
+{
+  "repo": "arundo-analytics",
+  "feeds": [
+    {
+      "source": "https://support.arundo.com/",
+      "feed_url": "https://support.arundo.com/",
+      "title": "",
+      "saved": 0,
+      "method": "none"
+    }
+  ],
+  "post_count": 0,
+  "fetched": "2026-08-15T12:22:01Z"
+}

@@ -16,6 +16,17 @@ description: 'Arundo Analytics is an industrial AI company with offices in Oslo,
   are marketed on the public site but are not publicly documented; there is no developer
   portal, no public API reference and no machine-readable specification, and the applications
   sit behind an Auth0 customer login.'
+deliveryModel:
+  model: saas
+  open_source: false
+  commercial: true
+  callable_host: false
+  label: Hosted service · you call their endpoint
+  confidence: medium
+  source:
+  - pricing
+  generated: '2026-08-28'
+  method: derived
 image: https://cdn.prod.website-files.com/628b26907521666ea45674fa/62ab23ffdc11279ec1b336a5_Favicin_Square_256x256.png
 url: https://raw.githubusercontent.com/api-evangelist/arundo-analytics/refs/heads/main/apis.yml
 x-type: company

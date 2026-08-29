@@ -29,6 +29,9 @@ deliveryModel:
   method: derived
 image: https://cdn.prod.website-files.com/628b26907521666ea45674fa/62ab23ffdc11279ec1b336a5_Favicin_Square_256x256.png
 url: https://raw.githubusercontent.com/api-evangelist/arundo-analytics/refs/heads/main/apis.yml
+x-api-posture: no-product-api
+x-api-posture-basis: observed
+x-api-posture-note: "The Foundation APIs themselves are marketed on the public site but are not publicly documented; there is no developer portal, no public API reference and no machine-readable specification, and the app"
 x-type: company
 x-source: harvest:secondary-market
 x-tier: stub

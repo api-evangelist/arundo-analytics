@@ -58,7 +58,7 @@ tags:
 - Industrial AI
 - Industrial IoT
 - Analytics
-- Machine-Learning
+- Machine Learning
 - Time Series
 - Asset Performance Management
 - Anomaly Detection
@@ -79,6 +79,7 @@ tags_raw:
 - Maritime
 - Oil and Gas
 - Manufacturing
+- Machine-Learning
 apis: []
 maintainers:
 - FN: Kin Lane

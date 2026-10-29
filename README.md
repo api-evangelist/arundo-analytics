@@ -64,5 +64,98 @@
 > Full detail: **[Where this data comes from](https://apievangelist.com/about/where-our-data-comes-from)**
 <!-- API-EVANGELIST-PROVENANCE:END -->
 
-Arundo Analytics is a company surfaced via the API Evangelist harvest backlog (source: secondary-market) and added to the network as a stub for full-pipeline profiling.
-- https://forgeglobal.com/arundo-analytics_stock/
+Arundo Analytics is an industrial AI company with offices in Oslo, Stockholm, Heidelberg and Houston, building software for asset-heavy industries such as oil and gas, maritime and shipping, chemicals and manufacturing. Its Arundo AI Foundation platform combines a knowledge graph of asset hierarchies and sensor metadata, industrial time-series storage built for high-velocity sensor data, parallelised machine-learning model orchestration, and specialised AI agents, surfaced through the AI Foundation Studio and what the company calls the Arundo Foundation APIs. Packaged applications include Marathon (continuous equipment condition monitoring), ArundoEdge and Edge Manager (secure streaming of IoT sensor data from control systems to the cloud), Energy Optimizer, CarbonPath (Scope 3 emissions management for shipping) and AI Companion. Arundo also maintains the open-source Python packages ADTK (unsupervised time-series anomaly detection) and tsaug (time-series augmentation), and publishes a public Foundation compute plug-in contract on GitHub. The Foundation APIs themselves are marketed on the public site but are not publicly documented; there is no developer portal, no public API reference and no machine-readable specification, and the applications sit behind an Auth0 customer login.
+
+**Areas:** Company · Industrial AI · Industrial IoT · Analytics · Machine Learning · Time Series · Asset Performance Management · Anomaly Detection · Energy · Maritime · Oil and Gas · Manufacturing
+
+## Arundo Analytics on APIs.io
+
+Everything profiled for Arundo Analytics is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/arundo-analytics/](https://apis.io/providers/arundo-analytics/)** — or go straight to one of the APIs or properties below.
+
+### Published properties
+
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
+
+#### JSON Schema (1)
+
+The data models the API reads and writes.
+
+- [Arundo Foundation compute plug-in contract](https://apis.io/schemas/arundo-analytics/arundo-analytics-foundation-compute/)
+
+#### Security (2)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Arundo Analytics Authentication](https://apis.io/security/arundo-analytics/arundo-analytics-authentication/)
+- [Arundo Analytics Domain Security](https://apis.io/security/arundo-analytics/arundo-analytics-domain-security/)
+
+#### OAuth scopes (1)
+
+The permissions the API asks for.
+
+- [Arundo Analytics Scopes](https://apis.io/scopes/arundo-analytics/arundo-analytics-scopes/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
+- [Website](https://www.arundo.com/)
+- [Support](https://support.arundo.com/)
+- [Blog](https://www.arundo.com/insights)
+- [Terms of service](https://www.arundo.com/terms-of-service)
+- [Privacy policy](https://www.arundo.com/privacy-policy)
+- [GitHub](https://github.com/arundo)
+- [Status](https://status.arundo.com)
+
+## API Evangelist rating
+
+**Kin Score 20.6** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 48.2 |
+| Contract quality | 0.0 |
+| Contract governance | 18.2 |
+| Operational transparency | 18.4 |
+| Developer ergonomics | 14.3 |
+| Access clarity | 27.6 |
+
+**Agent readiness 15.1** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | — |
+| Agentic Access | — |
+| Reversibility Documented | — |
+| MCP Server | — |
+| Auth Clarity | served (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | served (partial credit) |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | yes |
+| Agentic Commerce | — |
+
+**Regulatory alignment 32.3** — Energy & Utilities
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/arundo-analytics/](https://apis.io/providers/arundo-analytics/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Arundo Analytics: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/arundo-analytics/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
